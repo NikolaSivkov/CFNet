@@ -71,7 +71,7 @@ namespace CFNET
             return Execute<CFResponse>(request);
         }
 
-        public CFResponse ZoneList()
+        public ZoneResponse ZoneList()
         {
             var request = new RestRequest(Method.POST);
 
@@ -79,7 +79,7 @@ namespace CFNET
             request.AddParameter("act", "zone_list");
 
 
-            return Execute<CFResponse>(request);
+            return Execute<ZoneResponse>(request);
         }
 
 
