@@ -1,6 +1,10 @@
-﻿namespace CFNET.Models
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using RestSharp.Deserializers;
+
+namespace CFNET.Models
 {
-    public class CFUser : CFAction
+    public class CreateUserReqest : CFAction
     {
         /// <summary>
         /// Create a CloudFlare account mapped to your user 
@@ -10,23 +14,30 @@
         /// <param name="password">The User's password for the new CloudFlare account. CloudFlare will never store this password in clear text.</param>
         /// <param name="uniqueId">Set a unique string identifying the User. This identifier will serve as an alias to the user's CloudFlare account. Typically you would set this value to the unique ID in your system (e.g., the internal customer number or username stored in your own system). This parameter can be used to retrieve a user_key when it is required. The unique_id must be an ASCII string with a maximum length of 100 characters.</param>
         /// <param name="clobberUniqueId">Any operations that can set a unique_id can be set to automatically "clobber" or unset a previously assigned unique_id.</param>
-        public CFUser(string email,string username,string password,string uniqueId,int clobberUniqueId =0 )
+        public CreateUserReqest(string email, string username, string password, string uniqueId, int clobberUniqueId = 0)
         {
-            cloudflare_email = email;
-            cloudflare_username = username;
-            cloudflare_pass = password;
-            unique_id = uniqueId;
-            clobber_unique_id = clobberUniqueId;
+            CloudflareEmail = email;
+            CloudflareUsername = username;
+            CloudflarePassword = password;
+            UniqueId = uniqueId;
+            ClobberUniqueId = clobberUniqueId;
         }
-        public string cloudflare_email { get; set; }
 
-        public string cloudflare_pass { get; set; }
 
-        public string cloudflare_username { get; set; }
+        [DeserializeAs(Name = "cloudflare_email")]
+        public string CloudflareEmail { get; set; }
 
-        public string unique_id { get; set; }
+        [DeserializeAs(Name = "cloudflare_pass")]
+        public string CloudflarePassword { get; set; }
 
-        public int clobber_unique_id { get; set; }
+        [DeserializeAs(Name = "cloudflare_username")]
+        public string CloudflareUsername { get; set; }
+
+        [DeserializeAs(Name = "unique_id")]
+        public string UniqueId { get; set; }
+
+        [DeserializeAs(Name = "clobber_unique_id")]
+        public int ClobberUniqueId { get; set; }
 
         /// <summary>
         /// Represents the action of creating a user.

@@ -30,12 +30,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=4.5.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
-    <Reference Include="RestSharp">
-      <HintPath>..\packages\RestSharp.104.1\lib\net4\RestSharp.dll</HintPath>
+    <Reference Include="RestSharp, Version=104.4.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\RestSharp.104.4.0\lib\net4\RestSharp.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -48,12 +49,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Models\CFAction.cs" />
-    <Compile Include="Models\CreateUser.cs" />
-    <Compile Include="CFNet.cs" />
-    <Compile Include="Models\Request.cs" />
-    <Compile Include="Models\Response.cs" />
-    <Compile Include="Models\Zone.cs" />
+    <Compile Include="Client.cs" />
+    <Compile Include="Models\Requests\CFAction.cs" />
+    <Compile Include="Models\Requests\CreateUser.cs" />
+    <Compile Include="Host.cs" />
+    <Compile Include="Models\Requests\Request.cs" />
+    <Compile Include="Models\Responses\CreateUserResponse.cs" />
+    <Compile Include="Models\RequestResult.cs" />
+    <Compile Include="Models\Responses\SetZoneResponse.cs" />
+    <Compile Include="Models\Responses\UsersLookupResponse.cs" />
+    <Compile Include="Models\Responses\ZoneDeleteResponse.cs" />
+    <Compile Include="Models\Responses\ZoneListResponse.cs" />
+    <Compile Include="Models\Responses\ZoneLookupResponse.cs" />
+    <Compile Include="Models\Requests\SetZoneRequest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
