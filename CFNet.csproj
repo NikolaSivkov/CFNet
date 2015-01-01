@@ -54,6 +54,7 @@
     <Compile Include="Models\Requests\CreateUser.cs" />
     <Compile Include="Host.cs" />
     <Compile Include="Models\Requests\Request.cs" />
+    <Compile Include="Models\ClientZoneSettings.cs" />
     <Compile Include="Models\Responses\CreateUserResponse.cs" />
     <Compile Include="Models\RequestResult.cs" />
     <Compile Include="Models\Responses\SetZoneResponse.cs" />
