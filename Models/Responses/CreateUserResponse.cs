@@ -13,6 +13,10 @@ namespace CFNET.Models
         [DeserializeAs(Name = "user_key")]
         public string UserKey { get; set; }
 
+        [SerializeAs(Name = "user_api_key")]
+        [DeserializeAs(Name = "user_api_key")]
+        public string UserApiKey { get; set; }
+
         [SerializeAs(Name = "unique_id")]
         [DeserializeAs(Name = "unique_id")]
         public string UniqueId { get; set; }
