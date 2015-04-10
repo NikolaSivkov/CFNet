@@ -29,7 +29,5 @@ namespace CFNET.Models
         [SerializeAs(Name = "offset")]
         [DeserializeAs(Name = "offset")]
         public string Offset { get; set; }
-         
     }
-  
 }

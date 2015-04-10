@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using RestSharp.Deserializers;
+using RestSharp.Serializers;
 
 namespace CFNET.Models
 {
@@ -23,19 +24,24 @@ namespace CFNET.Models
             ClobberUniqueId = clobberUniqueId;
         }
 
-
+        [SerializeAs(Name = "cloudflare_email")]
         [DeserializeAs(Name = "cloudflare_email")]
         public string CloudflareEmail { get; set; }
 
+
+        [SerializeAs(Name = "cloudflare_pass")]
         [DeserializeAs(Name = "cloudflare_pass")]
         public string CloudflarePassword { get; set; }
 
+        [SerializeAs(Name = "cloudflare_username")]
         [DeserializeAs(Name = "cloudflare_username")]
         public string CloudflareUsername { get; set; }
 
+        [SerializeAs(Name = "unique_id")]
         [DeserializeAs(Name = "unique_id")]
         public string UniqueId { get; set; }
 
+        [SerializeAs(Name = "clobber_unique_id")]
         [DeserializeAs(Name = "clobber_unique_id")]
         public int ClobberUniqueId { get; set; }
 
