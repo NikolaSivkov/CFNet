@@ -4,6 +4,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using RestSharp.Serializers;
 
 namespace CFNET.Models
 {
@@ -18,7 +19,19 @@ namespace CFNET.Models
 
             foreach (PropertyInfo pi in PInfos)
             {
-                props.Add(pi.Name, this.GetType().GetProperty(pi.Name).GetValue(this).ToString());
+
+                var keyName = pi.Name;
+
+                var hasSerializeAs = Attribute.IsDefined(pi, typeof(SerializeAsAttribute));
+
+                if (hasSerializeAs)
+                {
+                    var serializeAs = (SerializeAsAttribute)Attribute.GetCustomAttribute(pi, typeof(SerializeAsAttribute));
+
+                    keyName = serializeAs.Name;
+                }
+
+                props.Add(keyName, this.GetType().GetProperty(pi.Name).GetValue(this).ToString());
             }
 
             return props;
